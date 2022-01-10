@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3965C97278C89890034F518 /* AmortizationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3965C96278C89890034F518 /* AmortizationRow.swift */; };
+		A3965C99278C89970034F518 /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3965C98278C89970034F518 /* Loan.swift */; };
 		A3F4F726278743980010CE9F /* InterestCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4F725278743980010CE9F /* InterestCalculatorApp.swift */; };
 		A3F4F728278743980010CE9F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4F727278743980010CE9F /* ContentView.swift */; };
 		A3F4F72A278743980010CE9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F4F729278743980010CE9F /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A3965C96278C89890034F518 /* AmortizationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmortizationRow.swift; sourceTree = "<group>"; };
+		A3965C98278C89970034F518 /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		A3F4F722278743980010CE9F /* InterestCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterestCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F4F725278743980010CE9F /* InterestCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestCalculatorApp.swift; sourceTree = "<group>"; };
 		A3F4F727278743980010CE9F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +36,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A3965C95278C89540034F518 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A3965C96278C89890034F518 /* AmortizationRow.swift */,
+				A3965C98278C89970034F518 /* Loan.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A3F4F719278743980010CE9F = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +64,7 @@
 		A3F4F724278743980010CE9F /* InterestCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				A3965C95278C89540034F518 /* Model */,
 				A3F4F725278743980010CE9F /* InterestCalculatorApp.swift */,
 				A3F4F727278743980010CE9F /* ContentView.swift */,
 				A3F4F729278743980010CE9F /* Assets.xcassets */,
@@ -139,6 +153,8 @@
 			files = (
 				A3F4F728278743980010CE9F /* ContentView.swift in Sources */,
 				A3F4F726278743980010CE9F /* InterestCalculatorApp.swift in Sources */,
+				A3965C97278C89890034F518 /* AmortizationRow.swift in Sources */,
+				A3965C99278C89970034F518 /* Loan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
