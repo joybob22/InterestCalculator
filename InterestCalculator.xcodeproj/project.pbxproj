@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A37FD5E7278DDBEA0035212C /* ListOfLoansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37FD5E6278DDBEA0035212C /* ListOfLoansView.swift */; };
+		A37FD5E9278DDBFE0035212C /* LoanRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37FD5E8278DDBFE0035212C /* LoanRowView.swift */; };
 		A3965C97278C89890034F518 /* AmortizationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3965C96278C89890034F518 /* AmortizationRow.swift */; };
 		A3965C99278C89970034F518 /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3965C98278C89970034F518 /* Loan.swift */; };
 		A3F4F726278743980010CE9F /* InterestCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4F725278743980010CE9F /* InterestCalculatorApp.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A37FD5E6278DDBEA0035212C /* ListOfLoansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfLoansView.swift; sourceTree = "<group>"; };
+		A37FD5E8278DDBFE0035212C /* LoanRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanRowView.swift; sourceTree = "<group>"; };
 		A3965C96278C89890034F518 /* AmortizationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmortizationRow.swift; sourceTree = "<group>"; };
 		A3965C98278C89970034F518 /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		A3F4F722278743980010CE9F /* InterestCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterestCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +40,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A37FD5E5278DDB9D0035212C /* ListOfLoansViews */ = {
+			isa = PBXGroup;
+			children = (
+				A37FD5E6278DDBEA0035212C /* ListOfLoansView.swift */,
+				A37FD5E8278DDBFE0035212C /* LoanRowView.swift */,
+			);
+			path = ListOfLoansViews;
+			sourceTree = "<group>";
+		};
 		A3965C95278C89540034F518 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +77,7 @@
 		A3F4F724278743980010CE9F /* InterestCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				A37FD5E5278DDB9D0035212C /* ListOfLoansViews */,
 				A3965C95278C89540034F518 /* Model */,
 				A3F4F725278743980010CE9F /* InterestCalculatorApp.swift */,
 				A3F4F727278743980010CE9F /* ContentView.swift */,
@@ -152,9 +166,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3F4F728278743980010CE9F /* ContentView.swift in Sources */,
+				A37FD5E7278DDBEA0035212C /* ListOfLoansView.swift in Sources */,
 				A3F4F726278743980010CE9F /* InterestCalculatorApp.swift in Sources */,
 				A3965C97278C89890034F518 /* AmortizationRow.swift in Sources */,
 				A3965C99278C89970034F518 /* Loan.swift in Sources */,
+				A37FD5E9278DDBFE0035212C /* LoanRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
