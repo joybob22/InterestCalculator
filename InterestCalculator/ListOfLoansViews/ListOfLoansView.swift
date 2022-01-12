@@ -11,6 +11,8 @@ struct ListOfLoansView: View {
     @State var loans: [Loan]
     @State var showDeleteAlert = false
     @State var itemIndexSetToBeDeleted: IndexSet?
+    @State var itemToBeDeleted: Loan?
+    @State var showingLoanCalculator = false
     
     var body: some View {
         NavigationView {
@@ -23,27 +25,35 @@ struct ListOfLoansView: View {
             .navigationTitle("Loans")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                Button(action: {}) {
+                Button(action: {
+                    showingLoanCalculator.toggle()
+                }) {
                     Image(systemName: "plus")
                 }
                 .padding()
             }
         }
         .confirmationDialog("Are you sure you want to delete the loan?", isPresented: $showDeleteAlert, titleVisibility: .visible, presenting: itemIndexSetToBeDeleted) { offsets in
-            Button("Delete", role: .destructive) {
-                withAnimation {
-                    // TODO
-                    // Make a cancel button where the loan gets added back into the array
-                    
-//                    loans.remove(atOffsets: offsets)
+            Button("Delete", role: .destructive) {}
+            Button("Cancel", role: .cancel) {
+                if let loanIndex = offsets.first, let itemToBeDeleted = itemToBeDeleted {
+                    withAnimation {
+                        loans.insert(itemToBeDeleted, at: loanIndex)
+                    }
                 }
             }
+        }
+        .fullScreenCover(isPresented: $showingLoanCalculator) {
+            LoanCalculator()
         }
     }
     
     func deleteRow(at offsets: IndexSet) {
         itemIndexSetToBeDeleted = offsets
         showDeleteAlert = true
+        if let loanIndex = offsets.first {
+            itemToBeDeleted = loans[loanIndex]
+        }
         loans.remove(atOffsets: offsets)
     }
 }
