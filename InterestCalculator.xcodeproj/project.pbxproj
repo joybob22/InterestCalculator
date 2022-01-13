@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032C27A9278F42BD00EE3136 /* alertTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032C27A8278F42BD00EE3136 /* alertTextField.swift */; };
 		A37FD5E7278DDBEA0035212C /* ListOfLoansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37FD5E6278DDBEA0035212C /* ListOfLoansView.swift */; };
 		A37FD5E9278DDBFE0035212C /* LoanRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37FD5E8278DDBFE0035212C /* LoanRowView.swift */; };
 		A37FD5EC278DE5F00035212C /* LoanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37FD5EB278DE5F00035212C /* LoanController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		032C27A8278F42BD00EE3136 /* alertTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertTextField.swift; sourceTree = "<group>"; };
 		A37FD5E6278DDBEA0035212C /* ListOfLoansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfLoansView.swift; sourceTree = "<group>"; };
 		A37FD5E8278DDBFE0035212C /* LoanRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanRowView.swift; sourceTree = "<group>"; };
 		A37FD5EB278DE5F00035212C /* LoanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				A3965C95278C89540034F518 /* Model */,
 				A3F4F725278743980010CE9F /* InterestCalculatorApp.swift */,
 				A3F4F727278743980010CE9F /* ContentView.swift */,
+				032C27A8278F42BD00EE3136 /* alertTextField.swift */,
 				A3F4F729278743980010CE9F /* Assets.xcassets */,
 				A3F4F72B278743980010CE9F /* Preview Content */,
 			);
@@ -176,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				032C27A9278F42BD00EE3136 /* alertTextField.swift in Sources */,
 				A3F4F728278743980010CE9F /* ContentView.swift in Sources */,
 				A37FD5E7278DDBEA0035212C /* ListOfLoansView.swift in Sources */,
 				A3F4F726278743980010CE9F /* InterestCalculatorApp.swift in Sources */,

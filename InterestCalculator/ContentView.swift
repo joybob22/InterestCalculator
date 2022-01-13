@@ -11,13 +11,17 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var amount: Int? = nil
+    @State private var amount: Double? = nil
     @State private var interestRate: Double? = nil
     @State private var term: Int? = nil
     
+    @State private var isPresented: Bool = false
+    @State private var text: String = ""
+    
+    
     var body: some View {
         NavigationView {
-            Form {
+           Form {
                 Section {
                     TextField("Amount", value: $amount, formatter: NumberFormatter())
                     TextField("Interst Rate", value: $interestRate, formatter: NumberFormatter())
@@ -51,7 +55,8 @@ struct ContentView: View {
                 
                 Section {
                     Button("Submit") {
-                        print("Hello")
+                        self.text = " "
+                        self.isPresented = true
                     }
                     
                 }
@@ -60,13 +65,27 @@ struct ContentView: View {
                 .foregroundColor(.white)
                 .cornerRadius(20)
                 
-                
+               alertTextField(title: "Type a name", isShown: $isPresented, text: $text, onDone: {
+                   text in
+                   
+                   if let amount = amount, let interestRate = interestRate, let term = term {
+                       LoanController.data.append(Loan(amount: amount, interestRate: interestRate, term: term, name: text))
+                       //print(LoanController.data)
+                   }
+                   
+                   
+                }
+               
+               )
+               
             }.navigationTitle("Loan Calculator")
         }
         
         
+        }
+        
     }
-}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
