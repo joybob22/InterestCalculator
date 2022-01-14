@@ -19,9 +19,12 @@ struct AmoritizationRowView: View {
             Spacer()
             Text("\(LoanController.currencyFormatter(number: rowData.interestPayment))")
             Spacer()
-            Text("\(LoanController.currencyFormatter(number: rowData.balance))")
+            rowData.balance < 100_000 ? Text("\(LoanController.currencyFormatter(number: rowData.balance))")
+            :
+            Text("$\(LoanController.bigNumberFormatter(number: rowData.balance))K")
         }
         .font(.footnote)
+        .padding([.leading, .trailing])
     }
 }
 
