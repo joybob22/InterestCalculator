@@ -32,9 +32,11 @@ struct AmoritizationView: View {
 }
 
 struct ListHeader: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         ZStack {
-            Color.white.ignoresSafeArea()
+            colorScheme == .dark ? Color.black.ignoresSafeArea() : Color.white.ignoresSafeArea()
             VStack {
                 Spacer().frame(height:50)
                 HStack {
