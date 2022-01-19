@@ -14,6 +14,12 @@ struct LoanController {
         Loan(amount: 120000, interestRate: 0.12, term: 60, name: "Tesla Payment")
     ]
     
+    static var data: [Loan] = [
+        Loan(amount: 23000, interestRate: 0.07, term: 24, name: "Car Payment"),
+        Loan(amount: 450000, interestRate: 0.03, term: 360, name: "House Payment"),
+        Loan(amount: 77000, interestRate: 0.12, term: 50, name: "Tesla Payment")
+    ]
+    
     static func currencyFormatter(number: Double) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
