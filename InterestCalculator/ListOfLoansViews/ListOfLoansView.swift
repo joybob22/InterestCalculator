@@ -8,34 +8,58 @@
 import SwiftUI
 
 struct ListOfLoansView: View {
-    var loans: [Loan]
+    @State var loans: [Loan]
+    @State var showDeleteAlert = false
+    @State var itemIndexSetToBeDeleted: IndexSet?
+    @State var itemToBeDeleted: Loan?
+    @State var showingLoanCalculator = false
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach(loans, id: \.name) { loan in
+                ForEach($loans, id: \.name) { loan in
                     LoanRowView(loan: loan)
                 }
+                .onDelete(perform: deleteRow)
             }
             .navigationTitle("Loans")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                Button(action: {}) {
+                Button(action: {
+                    showingLoanCalculator.toggle()
+                }) {
                     Image(systemName: "plus")
                 }
                 .padding()
             }
         }
+        .confirmationDialog("Are you sure you want to delete the loan?", isPresented: $showDeleteAlert, titleVisibility: .visible, presenting: itemIndexSetToBeDeleted) { offsets in
+            Button("Delete", role: .destructive) {}
+            Button("Cancel", role: .cancel) {
+                if let loanIndex = offsets.first, let itemToBeDeleted = itemToBeDeleted {
+                    withAnimation {
+                        loans.insert(itemToBeDeleted, at: loanIndex)
+                    }
+                }
+            }
+        }
+        .fullScreenCover(isPresented: $showingLoanCalculator) {
+            LoanCalculator()
+        }
+    }
+    
+    func deleteRow(at offsets: IndexSet) {
+        itemIndexSetToBeDeleted = offsets
+        showDeleteAlert = true
+        if let loanIndex = offsets.first {
+            itemToBeDeleted = loans[loanIndex]
+        }
+        loans.remove(atOffsets: offsets)
     }
 }
 
 struct ListOfLoansView_Previews: PreviewProvider {
-    static var testData: [Loan] = [
-        Loan(amount: 23000, interestRate: 0.07, term: 24, name: "Car Payment"),
-        Loan(amount: 450000, interestRate: 0.03, term: 360, name: "House Payment"),
-        Loan(amount: 77000, interestRate: 0.12, term: 50, name: "Tesla Payment")
-    ]
-    
     static var previews: some View {
-        ListOfLoansView(loans: testData)
+        ListOfLoansView(loans: LoanController.testData)
     }
 }
