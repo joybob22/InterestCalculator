@@ -17,7 +17,7 @@ struct ContentView: View {
     
     @State private var isPresented: Bool = false
     @State private var text: String = ""
-    
+    @State private var loan: Loan?
     
     var body: some View {
         NavigationView {
@@ -33,6 +33,11 @@ struct ContentView: View {
                     Section {
                         Button("Calculate") {
                             print("Hello")
+                            if let amount = amount, let interestRate = interestRate, let term = term {
+                            loan = Loan(amount: amount, interestRate: interestRate / 100, term: term, name: "")
+                                print(loan?.payment)
+                            }
+                                
                         }
                         
                     }
