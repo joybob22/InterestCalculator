@@ -39,7 +39,7 @@ struct alertTextField: View {
             
             
         } .padding()
-            .frame(width: screenSize.width * 0.7, height: screenSize.height * 0.3, alignment: .center)
+            .frame(width: screenSize.width * 0.6, height: screenSize.height * 0.2, alignment: .center)
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
             .offset(y: isShown ? 0 : screenSize.height)
