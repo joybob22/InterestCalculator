@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ListOfLoansView: View {
-    @State var loans: [Loan]
+    @Binding var loans: [Loan]
     @State var showDeleteAlert = false
     @State var itemIndexSetToBeDeleted: IndexSet?
     @State var itemToBeDeleted: Loan?
@@ -60,6 +60,6 @@ struct ListOfLoansView: View {
 
 struct ListOfLoansView_Previews: PreviewProvider {
     static var previews: some View {
-        ListOfLoansView(loans: LoanController.testData)
+        ListOfLoansView(loans: .constant(LoanController.testData))
     }
 }
