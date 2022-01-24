@@ -9,11 +9,10 @@ import SwiftUI
 
 @main
 struct InterestCalculatorApp: App {
-    @State private var loans = LoanController.data
-    
+    @StateObject private var loans = LoanController(loans: LoanController.testData)
     var body: some Scene {
         WindowGroup {
-            ListOfLoansView(loans: $loans)
+            ListOfLoansView(loanController: loans)
         }
     }
 }

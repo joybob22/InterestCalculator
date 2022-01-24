@@ -80,8 +80,8 @@ struct LoanCalculator: View {
                     text in
                     
                     if let amount = amount, let interestRate = interestRate, let term = term {
-                        LoanController.data.append(Loan(amount: amount, interestRate: interestRate, term: term, name: text))
-                        print(LoanController.data)
+                        LoanController.testData.append(Loan(amount: amount, interestRate: interestRate, term: term, name: text))
+                        print(LoanController.testData)
                     }
                     
                     
