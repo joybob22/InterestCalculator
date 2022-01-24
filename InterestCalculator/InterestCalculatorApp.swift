@@ -11,7 +11,7 @@ import SwiftUI
 struct InterestCalculatorApp: App {
     var body: some Scene {
         WindowGroup {
-            AmoritizationView(amoritization: LoanController.testData[0].amoritization)
+            NewPayment(loan: LoanController.data[0])
         }
     }
 }
