@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ListOfLoansView: View {
-    @State var loans: [Loan]
+    @StateObject var loanController: LoanController
     @State var showDeleteAlert = false
     @State var itemIndexSetToBeDeleted: IndexSet?
     @State var itemToBeDeleted: Loan?
@@ -17,7 +17,7 @@ struct ListOfLoansView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach($loans, id: \.name) { loan in
+                ForEach(loanController.data, id: \.name) { loan in
                     LoanRowView(loan: loan)
                 }
                 .onDelete(perform: deleteRow)
@@ -27,6 +27,7 @@ struct ListOfLoansView: View {
             .toolbar {
                 Button(action: {
                     showingLoanCalculator.toggle()
+//                    loanController.objectWillChange.send()
                 }) {
                     Image(systemName: "plus")
                 }
@@ -38,13 +39,13 @@ struct ListOfLoansView: View {
             Button("Cancel", role: .cancel) {
                 if let loanIndex = offsets.first, let itemToBeDeleted = itemToBeDeleted {
                     withAnimation {
-                        loans.insert(itemToBeDeleted, at: loanIndex)
+                        loanController.data.insert(itemToBeDeleted, at: loanIndex)
                     }
                 }
             }
         }
         .fullScreenCover(isPresented: $showingLoanCalculator) {
-            LoanCalculator()
+            LoanCalculator(loanController: loanController)
         }
     }
     
@@ -52,14 +53,14 @@ struct ListOfLoansView: View {
         itemIndexSetToBeDeleted = offsets
         showDeleteAlert = true
         if let loanIndex = offsets.first {
-            itemToBeDeleted = loans[loanIndex]
+            itemToBeDeleted = loanController.data[loanIndex]
         }
-        loans.remove(atOffsets: offsets)
+        loanController.data.remove(atOffsets: offsets)
     }
 }
 
 struct ListOfLoansView_Previews: PreviewProvider {
     static var previews: some View {
-        ListOfLoansView(loans: LoanController.testData)
+        ListOfLoansView(loanController: LoanController(loans: LoanController.testData))
     }
 }

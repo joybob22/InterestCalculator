@@ -8,11 +8,14 @@
 import Foundation
 import SwiftUI
 
-struct Loan {
-    var amount: Double
-    var interestRate: Double
+class Loan: ObservableObject, Identifiable {
+    var id: UUID = UUID()
+    @Published var amount: Double
+    @Published var interestRate: Double
     //term is in months
-    var term: Int
+    @Published var term: Int
+    @Published var name: String
+    
     var payment: Double {
         amount * (interestRate / 12 * pow((1 + interestRate / 12), Double(term))) / (pow((1 + interestRate / 12), Double(term)) - 1)
     }
@@ -30,5 +33,12 @@ struct Loan {
         }
         return completedAmortization
     }
-    var name: String
+    
+    
+    init(amount: Double, interestRate: Double, term: Int, name: String) {
+        self.amount = amount
+        self.interestRate = interestRate
+        self.term = term
+        self.name = name
+    }
 }

@@ -27,7 +27,7 @@ struct AmoritizationView: View {
                 }
             })
         }
-        .edgesIgnoringSafeArea(.all)
+        .edgesIgnoringSafeArea(.vertical)
     }
 }
 
