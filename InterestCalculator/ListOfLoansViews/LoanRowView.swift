@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoanRowView: View {
-    @Binding var loan: Loan
+    var loan: Loan
     
     var body: some View {
         HStack {
@@ -29,7 +29,7 @@ struct LoanRowView: View {
 
 struct LoanRowView_Previews: PreviewProvider {
     static var previews: some View {
-        LoanRowView(loan: .constant(LoanController.testData[0]))
+        LoanRowView(loan: LoanController.testData[0])
             .previewLayout(.sizeThatFits)
     }
 }
