@@ -50,6 +50,6 @@ struct alertTextField: View {
 
 struct alertTextField_Previews: PreviewProvider {
     static var previews: some View {
-        alertTextField(isShown: .constant(true), text: .constant(""))
+        alertTextField(isShown: .constant(true), text: .constant("Type a name"))
     }
 }

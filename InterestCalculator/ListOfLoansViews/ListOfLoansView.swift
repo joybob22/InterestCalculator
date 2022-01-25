@@ -45,7 +45,7 @@ struct ListOfLoansView: View {
             }
         }
         .fullScreenCover(isPresented: $showingLoanCalculator) {
-            LoanCalculator()
+            LoanCalculator(loanController: loanController)
         }
     }
     

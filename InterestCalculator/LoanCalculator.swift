@@ -11,6 +11,13 @@ import SwiftUI
 
 struct LoanCalculator: View {
     
+    private enum Field: Int, CaseIterable {
+        case amount, interestRate, term
+    }
+    
+    @Environment(\.presentationMode) var presentation
+    @Environment(\.colorScheme) var colorScheme
+    
     @State private var amount: Double? = nil
     @State private var interestRate: Double? = nil
     @State private var term: Int? = nil
@@ -19,15 +26,19 @@ struct LoanCalculator: View {
     @State private var text: String = ""
     @State private var loan: Loan?
     
+    @StateObject var loanController: LoanController
+    
+    @FocusState private var focusField: Field?
+    
     var body: some View {
         NavigationView {
             ZStack {
                 Form {
 
                     Section {
-                        TextField("Amount", value: $amount, formatter: NumberFormatter())
-                        TextField("Interst Rate", value: $interestRate, formatter: NumberFormatter())
-                        TextField("Term", value: $term, formatter: NumberFormatter())
+                        TextField("Amount", value: $amount, formatter: NumberFormatter()).keyboardType(.decimalPad).focused($focusField, equals: .amount)
+                        TextField("Interst Rate", value: $interestRate, formatter: NumberFormatter()).keyboardType(.decimalPad).focused($focusField, equals: .interestRate)
+                        TextField("Term", value: $term, formatter: NumberFormatter()).keyboardType(.decimalPad).focused($focusField, equals: .term)
                         
                     }
                     Section {
@@ -62,8 +73,13 @@ struct LoanCalculator: View {
                     
                     Section {
                         Button("Submit") {
-                            self.text = " "
-                            self.isPresented = true
+                            //Form Validation
+                            if let _ = amount, let _ = interestRate, let _ = term {
+                                self.text = ""
+                                withAnimation {
+                                    self.isPresented = true
+                                }
+                            }
                         }
                         
                     }
@@ -74,13 +90,30 @@ struct LoanCalculator: View {
                     
                     
                    
-                }.navigationTitle("Loan Calculator")
+                }
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        Button("Done") {
+                            focusField = nil
+                        }
+                    }
+                }
+                .navigationTitle("Loan Calculator")
+                
+                if isPresented {
+                    colorScheme == .dark ? Color.black.ignoresSafeArea().opacity(0.7) : Color.white.ignoresSafeArea().opacity(0.7)
+                }
+                    
                 
                 alertTextField(title: "Type a name", isShown: $isPresented, text: $text, onDone: {
                     text in
                     
                     if let amount = amount, let interestRate = interestRate, let term = term {
-                        LoanController.testData.append(Loan(amount: amount, interestRate: interestRate, term: term, name: text))
+                        loanController.data.append(Loan(amount: amount, interestRate: interestRate, term: term, name: text))
+                        
+                        presentation.wrappedValue.dismiss()
+                        
                         print(LoanController.testData)
                     }
                     
@@ -100,6 +133,6 @@ struct LoanCalculator: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        LoanCalculator()
+        LoanCalculator(loanController: LoanController(loans: LoanController.testData))
     }
 }
