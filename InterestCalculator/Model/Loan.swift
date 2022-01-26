@@ -16,6 +16,7 @@ class Loan: ObservableObject, Identifiable {
     @Published var term: Int
     @Published var name: String
     
+    
     var payment: Double {
         amount * (interestRate / 12 * pow((1 + interestRate / 12), Double(term))) / (pow((1 + interestRate / 12), Double(term)) - 1)
     }
