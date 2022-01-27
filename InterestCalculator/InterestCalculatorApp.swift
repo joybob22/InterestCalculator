@@ -12,11 +12,9 @@ struct InterestCalculatorApp: App {
     @StateObject private var loans = LoanController(loans: LoanController.testData)
     var body: some Scene {
         WindowGroup {
-<<<<<<< HEAD
-            NewPayment(loan: LoanController.data[0])
-=======
-            ListOfLoansView(loanController: loans)
->>>>>>> dev
+
+            NewPayment(loan: LoanController.testData[0])
+
         }
     }
 }

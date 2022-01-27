@@ -11,7 +11,7 @@ struct NewPayment: View {
     
     @State private var newPayment: Double? = nil
     @State var loan: Loan
-    
+   
     
     var body: some View {
         
@@ -36,6 +36,9 @@ struct NewPayment: View {
                         TextField("New Payment:", value: $newPayment, formatter: NumberFormatter()).font(.title2).padding().background(Color(.systemBlue)).clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous)).shadow(radius: 10).keyboardType(.decimalPad)
                             
                     }
+                    
+                    //NavigationLink("See amortization table", destination: AmoritizationView(amoritization: ))
+                    
                     
                     Section {
                         Text("New Interest payment:")
@@ -69,6 +72,6 @@ struct NewPayment: View {
 
 struct NewPayment_Previews: PreviewProvider {
     static var previews: some View {
-        NewPayment(loan: LoanController.data[0])
+        NewPayment(loan: LoanController.testData[0])
     }
 }
