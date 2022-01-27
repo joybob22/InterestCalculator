@@ -10,6 +10,7 @@ import SwiftUI
 struct alertTextField: View {
     
     let screenSize = UIScreen.main.bounds
+    @Environment(\.colorScheme) var colorScheme
     
     var title: String = ""
     @Binding var isShown: Bool
@@ -40,11 +41,11 @@ struct alertTextField: View {
             
         } .padding()
             .frame(width: screenSize.width * 0.6, height: screenSize.height * 0.2, alignment: .center)
-            .background(Color.white)
+            .background(colorScheme == .dark ? Color.gray : Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
             .offset(y: isShown ? 0 : screenSize.height)
             //.animation(.spring())
-            .shadow(color: Color.gray, radius: 6, x: 9, y: 12)
+            .shadow(color: colorScheme == .dark ? Color.white: Color.gray, radius: 6, x: 9, y: 12)
     }
 }
 
