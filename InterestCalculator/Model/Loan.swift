@@ -15,6 +15,7 @@ class Loan: ObservableObject, Identifiable {
     //term is in months
     @Published var term: Int
     @Published var name: String
+    var addedPayment:Double = 0
     
     
     var payment: Double {
@@ -24,12 +25,23 @@ class Loan: ObservableObject, Identifiable {
         var completedAmortization: [AmoritizationRow] = []
         let monthlyInterestRate = interestRate / 12
         var remainingLoanBalance = amount
-        var principalMonthlyPayment = payment - (remainingLoanBalance * monthlyInterestRate)
+        var principalMonthlyPayment = payment + addedPayment - (remainingLoanBalance * monthlyInterestRate)
         for index in 1...term {
-            completedAmortization.append(AmoritizationRow(termNumber: index, payment: payment, interestPayment: remainingLoanBalance * monthlyInterestRate, balance: remainingLoanBalance - principalMonthlyPayment, principal: principalMonthlyPayment ))
+            if remainingLoanBalance <= 0 {
+                
+            } else if remainingLoanBalance < payment + addedPayment {
+                completedAmortization.append(AmoritizationRow(termNumber: index, payment: remainingLoanBalance + remainingLoanBalance * monthlyInterestRate, interestPayment: remainingLoanBalance * monthlyInterestRate, balance: 0, principal: remainingLoanBalance ))
+                remainingLoanBalance -= remainingLoanBalance
+            } else {
+                completedAmortization.append(AmoritizationRow(termNumber: index, payment: payment, interestPayment: remainingLoanBalance * monthlyInterestRate, balance: remainingLoanBalance - principalMonthlyPayment, principal: principalMonthlyPayment ))
+                remainingLoanBalance -= principalMonthlyPayment
+                
+            }
             
-            remainingLoanBalance -= principalMonthlyPayment
-            principalMonthlyPayment =  payment - remainingLoanBalance * monthlyInterestRate
+            
+            
+            
+            principalMonthlyPayment =  payment + addedPayment - remainingLoanBalance * monthlyInterestRate
             
         }
         return completedAmortization
@@ -41,5 +53,13 @@ class Loan: ObservableObject, Identifiable {
         self.interestRate = interestRate
         self.term = term
         self.name = name
+    }
+    
+    init(amount: Double, interestRate: Double, term: Int, name: String, addedPayment: Double) {
+        self.amount = amount
+        self.interestRate = interestRate
+        self.term = term
+        self.name = name
+        self.addedPayment = addedPayment
     }
 }
