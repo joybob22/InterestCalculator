@@ -13,7 +13,7 @@ struct NewPayment: View {
     @State var loan: Loan
     @FocusState private var focusField: Bool
     @State var show = false
-    @State var newLoan: Loan = Loan(amount: 100000, interestRate: 7 / 100, term: 20, name: "test", addedPayment: 100)
+    @State var newLoan: Loan?
     @State var newInterestPayment: Double = 0
     @State var newTerm = 0
     var oldInterestpayment: Double {
@@ -26,18 +26,10 @@ struct NewPayment: View {
     
     var oldTerm: Int {
         loan.amoritization.count
-        
     }
     
     var body: some View {
-        
-        NavigationView {
             VStack {
-                NavigationLink(destination: AmoritizationView(amoritization: newLoan.amoritization)) {
-                    Text("hello")
-                }
-                
-                
                 Form {
                     
                     Section {
@@ -54,9 +46,7 @@ struct NewPayment: View {
                             .focused($focusField)
                     }
                     
-                    NavigationLink("See amortiztion Table", destination: AmoritizationView(amoritization: newLoan.amoritization))
-                    
-                    
+                    NavigationLink("See amortiztion Table", destination: AmoritizationView(amoritization: newLoan?.amoritization ?? []))
                     
                     Section {
                         Text("New Interest payment: \(newInterestPayment)")
@@ -64,9 +54,6 @@ struct NewPayment: View {
                         Text("Old Interst payment: \(oldInterestpayment)")
                         Text("Old Term \(oldTerm)")
                     }
-                    
-                    
-                    
                     Section {
                         Button("Save New Payment") {
                             print("Do the saving action")
@@ -79,13 +66,13 @@ struct NewPayment: View {
                         Button("Done") {
                             focusField = false
                             if let newPayment = newPayment {
-                                var newLoan1 = Loan(amount: loan.amount, interestRate: loan.interestRate, term: loan.term, name: loan.name, addedPayment: newPayment)
+                                let newLoan1 = Loan(amount: loan.amount, interestRate: loan.interestRate, term: loan.term, name: loan.name, addedPayment: newPayment + loan.addedPayment)
                                 print(loan.amoritization)
                                 print(newLoan1.amoritization)
                                 newLoan = newLoan1
-                                newTerm = newLoan.amoritization.count
+                                newTerm = newLoan?.amoritization.count ?? 0
                                 var payments:Double = 0
-                                for term in newLoan.amoritization {
+                                for term in newLoan?.amoritization ?? [] {
                                     payments += term.interestPayment
                                 }
                                 newInterestPayment = payments
@@ -96,7 +83,9 @@ struct NewPayment: View {
                 }
             }
             .navigationTitle("New Payment")
-        }
+            .onAppear {
+                newLoan = Loan(amount: loan.amount, interestRate: loan.interestRate, term: loan.term, name: loan.name, addedPayment: loan.addedPayment)
+            }
     }
 }
 

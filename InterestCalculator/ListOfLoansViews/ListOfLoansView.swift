@@ -17,7 +17,7 @@ struct ListOfLoansView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(loanController.data, id: \.name) { loan in
+                ForEach(loanController.data) { loan in
                     LoanRowView(loan: loan)
                 }
                 .onDelete(perform: deleteRow)

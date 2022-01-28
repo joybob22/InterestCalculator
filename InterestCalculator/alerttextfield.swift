@@ -42,11 +42,11 @@ struct alertTextField: View {
             
         } .padding()
             .frame(width: screenSize.width * 0.6, height: screenSize.height * 0.2, alignment: .center)
-            .background(colorScheme == .dark ? Color.gray : Color.white)
+            .background(colorScheme == .dark ? Color(.sRGB, red: 0.14, green: 0.14, blue: 0.15, opacity: 1) : Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
             .offset(y: isShown ? 0 : screenSize.height)
             //.animation(.spring())
-            .shadow(color: colorScheme == .dark ? Color.white: Color.gray, radius: 6, x: 9, y: 12)
+            .shadow(color: colorScheme == .dark ? Color(.sRGB, red: 0.3, green: 0.3, blue: 0.3, opacity: 1): Color.gray, radius: 6, x: 1, y: 1)
     }
 }
 

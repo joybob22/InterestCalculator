@@ -11,6 +11,8 @@ struct AmoritizationView: View {
     var amoritization: [AmoritizationRow]
     
     @Environment(\.defaultMinListRowHeight) var minRowHeight
+    @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
+        @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
     var body: some View {
         ScrollView {
@@ -27,6 +29,8 @@ struct AmoritizationView: View {
                 }
             })
         }
+        //Added padding to the top of the screen when in portrait mode. If there is no padding then the pinned header is below the navigation header. In Landscape mode everything is fine.
+        .padding(.top, horizontalSizeClass == .compact && verticalSizeClass == .regular ? 40 : 0)
         .edgesIgnoringSafeArea(.vertical)
     }
 }

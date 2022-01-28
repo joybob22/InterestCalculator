@@ -13,7 +13,7 @@ struct InterestCalculatorApp: App {
     var body: some Scene {
         WindowGroup {
 
-            NewPayment(loan: LoanController.testData[0])
+            ListOfLoansView(loanController: loans)
 
         }
     }
