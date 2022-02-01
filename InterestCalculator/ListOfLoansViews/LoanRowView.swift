@@ -11,7 +11,7 @@ struct LoanRowView: View {
     var loan: Loan
     
     var body: some View {
-        NavigationLink(destination: NewPayment(loan: loan)) {
+        NavigationLink(destination: NewPayment(loan: loan, newLoan: Loan(amount: loan.amount, interestRate: loan.interestRate, term: loan.term, name: loan.name, addedPayment: loan.addedPayment))) {
             HStack {
                 VStack(alignment: .leading) {
                     Text(loan.name)

@@ -9,13 +9,16 @@ import SwiftUI
 
 struct NewPayment: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var newPayment: Double? = nil
     @State var loan: Loan
     @FocusState private var focusField: Bool
     @State var show = false
-    @State var newLoan: Loan?
+    @State var newLoan: Loan
     @State var newInterestPayment: Double = 0
     @State var newTerm = 0
+    
     var oldInterestpayment: Double {
         var payments: Double = 0
         for term in loan.amoritization {
@@ -34,9 +37,9 @@ struct NewPayment: View {
                     
                     Section {
                         Text("Name: \(loan.name)")
-                        Text("Term: \(loan.term)")
+                        Text("Term: \(newLoan.amoritization.count)")
                         Text("Interst Rate: \(loan.interestRate)")
-                        Text("Payment: \(loan.payment)")
+                        Text("Payment: \(newLoan.payment + newLoan.addedPayment)")
                         
                     }
                     
@@ -46,7 +49,7 @@ struct NewPayment: View {
                             .focused($focusField)
                     }
                     
-                    NavigationLink("See amortiztion Table", destination: AmoritizationView(amoritization: newLoan?.amoritization ?? []))
+                    NavigationLink("See amortiztion Table", destination: AmoritizationView(amoritization: newLoan.amoritization))
                     
                     Section {
                         Text("New Interest payment: \(newInterestPayment)")
@@ -56,9 +59,15 @@ struct NewPayment: View {
                     }
                     Section {
                         Button("Save New Payment") {
-                            print("Do the saving action")
+                            if  newLoan.addedPayment > 0 {
+                                print(loan.id)
+                                LoanController.shared.updatedLoan(loan: newLoan, id: loan.id)
+                                LoanController.shared.objectWillChange.send()
+                                presentationMode.wrappedValue.dismiss()
+                            }
                         }
-                    }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                         .background(Color.blue).foregroundColor(.white).cornerRadius(20)
                 }.toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
@@ -70,9 +79,9 @@ struct NewPayment: View {
                                 print(loan.amoritization)
                                 print(newLoan1.amoritization)
                                 newLoan = newLoan1
-                                newTerm = newLoan?.amoritization.count ?? 0
+                                newTerm = newLoan.amoritization.count
                                 var payments:Double = 0
-                                for term in newLoan?.amoritization ?? [] {
+                                for term in newLoan.amoritization {
                                     payments += term.interestPayment
                                 }
                                 newInterestPayment = payments
@@ -83,14 +92,11 @@ struct NewPayment: View {
                 }
             }
             .navigationTitle("New Payment")
-            .onAppear {
-                newLoan = Loan(amount: loan.amount, interestRate: loan.interestRate, term: loan.term, name: loan.name, addedPayment: loan.addedPayment)
-            }
     }
 }
 
 struct NewPayment_Previews: PreviewProvider {
     static var previews: some View {
-        NewPayment(loan: LoanController.testData[0])
+        NewPayment(loan: LoanController.testData[0], newLoan: LoanController.testData[0])
     }
 }

@@ -14,10 +14,21 @@ class LoanController: ObservableObject {
         Loan(amount: 120000, interestRate: 0.12, term: 60, name: "Tesla Payment")
     ]
     
+    static var shared = LoanController(loans: testData)
+    
     @Published var data: [Loan]
     
     init(loans: [Loan]) {
         data = loans
+    }
+    
+    func updatedLoan(loan: Loan, id: UUID) {
+        for (i, aLoan) in data.enumerated() {
+            if aLoan.id == id {
+                data[i].addedPayment = loan.addedPayment
+                print("changed: \(loan.addedPayment)")
+            }
+        }
     }
     
     static func currencyFormatter(number: Double) -> String {
