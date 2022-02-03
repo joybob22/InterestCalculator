@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ListOfLoansView: View {
-    @StateObject var loanController: LoanController
     @State var showDeleteAlert = false
     @State var itemIndexSetToBeDeleted: IndexSet?
     @State var itemToBeDeleted: Loan?
@@ -17,7 +16,7 @@ struct ListOfLoansView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(loanController.data, id: \.name) { loan in
+                ForEach(LoanController.shared.data) { loan in
                     LoanRowView(loan: loan)
                 }
                 .onDelete(perform: deleteRow)
@@ -27,7 +26,7 @@ struct ListOfLoansView: View {
             .toolbar {
                 Button(action: {
                     showingLoanCalculator.toggle()
-//                    loanController.objectWillChange.send()
+//                    LoanController.shared.objectWillChange.send()
                 }) {
                     Image(systemName: "plus")
                 }
@@ -39,13 +38,13 @@ struct ListOfLoansView: View {
             Button("Cancel", role: .cancel) {
                 if let loanIndex = offsets.first, let itemToBeDeleted = itemToBeDeleted {
                     withAnimation {
-                        loanController.data.insert(itemToBeDeleted, at: loanIndex)
+                        LoanController.shared.data.insert(itemToBeDeleted, at: loanIndex)
                     }
                 }
             }
         }
         .fullScreenCover(isPresented: $showingLoanCalculator) {
-            LoanCalculator(loanController: loanController)
+            LoanCalculator(loanController: LoanController.shared)
         }
     }
     
@@ -53,14 +52,14 @@ struct ListOfLoansView: View {
         itemIndexSetToBeDeleted = offsets
         showDeleteAlert = true
         if let loanIndex = offsets.first {
-            itemToBeDeleted = loanController.data[loanIndex]
+            itemToBeDeleted = LoanController.shared.data[loanIndex]
         }
-        loanController.data.remove(atOffsets: offsets)
+        LoanController.shared.data.remove(atOffsets: offsets)
     }
 }
 
 struct ListOfLoansView_Previews: PreviewProvider {
     static var previews: some View {
-        ListOfLoansView(loanController: LoanController(loans: LoanController.testData))
+        ListOfLoansView()
     }
 }

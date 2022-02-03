@@ -9,13 +9,16 @@ import SwiftUI
 
 struct NewPayment: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var newPayment: Double? = nil
     @State var loan: Loan
     @FocusState private var focusField: Bool
     @State var show = false
-    @State var newLoan: Loan = Loan(amount: 100000, interestRate: 7 / 100, term: 20, name: "test", addedPayment: 100)
+    @State var newLoan: Loan
     @State var newInterestPayment: Double = 0
     @State var newTerm = 0
+    
     var oldInterestpayment: Double {
         var payments: Double = 0
         for term in loan.amoritization {
@@ -26,37 +29,27 @@ struct NewPayment: View {
     
     var oldTerm: Int {
         loan.amoritization.count
-        
     }
     
     var body: some View {
-        
-        NavigationView {
             VStack {
-                NavigationLink(destination: AmoritizationView(amoritization: newLoan.amoritization)) {
-                    Text("hello")
-                }
-                
-                
                 Form {
                     
                     Section {
                         Text("Name: \(loan.name)")
-                        Text("Term: \(loan.term)")
+                        Text("Term: \(newLoan.amoritization.count)")
                         Text("Interst Rate: \(loan.interestRate)")
-                        Text("Payment: \(loan.payment)")
+                        Text("Payment: \(newLoan.payment + newLoan.addedPayment)")
                         
                     }
                     
                     Section {
                         
-                        TextField("New Payment:", value: $newPayment, formatter: NumberFormatter()).font(.title2).padding().background(Color(.systemBlue)).clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous)).shadow(radius: 10).keyboardType(.decimalPad)
+                        TextField("Extra monthly payment:", value: $newPayment, formatter: NumberFormatter())
                             .focused($focusField)
                     }
                     
                     NavigationLink("See amortiztion Table", destination: AmoritizationView(amoritization: newLoan.amoritization))
-                    
-                    
                     
                     Section {
                         Text("New Interest payment: \(newInterestPayment)")
@@ -64,14 +57,17 @@ struct NewPayment: View {
                         Text("Old Interst payment: \(oldInterestpayment)")
                         Text("Old Term \(oldTerm)")
                     }
-                    
-                    
-                    
                     Section {
                         Button("Save New Payment") {
-                            print("Do the saving action")
+                            if  newLoan.addedPayment > 0 {
+                                print(loan.id)
+                                LoanController.shared.updatedLoan(loan: newLoan, id: loan.id)
+                                LoanController.shared.objectWillChange.send()
+                                presentationMode.wrappedValue.dismiss()
+                            }
                         }
-                    }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                         .background(Color.blue).foregroundColor(.white).cornerRadius(20)
                 }.toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
@@ -79,7 +75,7 @@ struct NewPayment: View {
                         Button("Done") {
                             focusField = false
                             if let newPayment = newPayment {
-                                var newLoan1 = Loan(amount: loan.amount, interestRate: loan.interestRate, term: loan.term, name: loan.name, addedPayment: newPayment)
+                                let newLoan1 = Loan(amount: loan.amount, interestRate: loan.interestRate, term: loan.term, name: loan.name, addedPayment: newPayment + loan.addedPayment)
                                 print(loan.amoritization)
                                 print(newLoan1.amoritization)
                                 newLoan = newLoan1
@@ -96,12 +92,11 @@ struct NewPayment: View {
                 }
             }
             .navigationTitle("New Payment")
-        }
     }
 }
 
 struct NewPayment_Previews: PreviewProvider {
     static var previews: some View {
-        NewPayment(loan: LoanController.testData[0])
+        NewPayment(loan: LoanController.testData[0], newLoan: LoanController.testData[0])
     }
 }
