@@ -32,7 +32,7 @@ struct LoanCalculator: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
+            VStack {
                 Form {
 
                     Section {
@@ -46,7 +46,7 @@ struct LoanCalculator: View {
                             print("Hello")
                             if let amount = amount, let interestRate = interestRate, let term = term {
                             loan = Loan(amount: amount, interestRate: interestRate / 100, term: term, name: "")
-                                print(loan?.payment)
+                                //print(loan?.payment)
                             }
                                 
                         }

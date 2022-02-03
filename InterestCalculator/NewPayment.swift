@@ -79,7 +79,7 @@ struct NewPayment: View {
                         Button("Done") {
                             focusField = false
                             if let newPayment = newPayment {
-                                var newLoan1 = Loan(amount: loan.amount, interestRate: loan.interestRate, term: loan.term, name: loan.name, addedPayment: newPayment)
+                                let newLoan1 = Loan(amount: loan.amount, interestRate: loan.interestRate, term: loan.term, name: loan.name, addedPayment: newPayment)
                                 print(loan.amoritization)
                                 print(newLoan1.amoritization)
                                 newLoan = newLoan1
