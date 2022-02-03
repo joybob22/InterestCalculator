@@ -32,31 +32,31 @@ struct LoanCalculator: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            ZStack {
                 Form {
-
+                    
                     Section {
                         TextField("Amount - Ex. 2000 for $2,000", value: $amount, formatter: NumberFormatter()).keyboardType(.decimalPad).focused($focusField, equals: .amount)
                         TextField("Interst Rate - Ex. 7 for 7%", value: $interestRate, formatter: NumberFormatter()).keyboardType(.decimalPad).focused($focusField, equals: .interestRate)
                         TextField("Term - Ex. 12 for 12 months", value: $term, formatter: NumberFormatter()).keyboardType(.decimalPad).focused($focusField, equals: .term)
-                        
+
                     }
                     Section {
                         Button("Calculate") {
                             print("Hello")
                             if let amount = amount, let interestRate = interestRate, let term = term {
-                            loan = Loan(amount: amount, interestRate: interestRate / 100, term: term, name: "")
+                                loan = Loan(amount: amount, interestRate: interestRate / 100, term: term, name: "")
                                 //print(loan?.payment)
                             }
-                                
+
                         }
-                        
+
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(20)
-                    
+
                     Section {
                         VStack {
                             Text("Payments")
@@ -66,11 +66,11 @@ struct LoanCalculator: View {
                                 .background(Color.gray)
                                 .frame(width: 200, height: 200, alignment: .center)
                                 .padding()
-                            
-                            
+
+
                         }
                     }
-                    
+
                     Section {
                         Button("Submit") {
                             //Form Validation
@@ -81,35 +81,20 @@ struct LoanCalculator: View {
                                 }
                             }
                         }
-                        
+
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(20)
                     
-                    
-                   
                 }
-                .toolbar {
-                    ToolbarItemGroup(placement: .keyboard) {
-                        Spacer()
-                        Button("Done") {
-                            focusField = nil
-                        }
-                    }
-                    ToolbarItem {
-                        Button("Cancel") {
-                            presentation.wrappedValue.dismiss()
-                        }
-                    }
-                }
-                .navigationTitle("Loan Calculator")
+                                
                 
                 if isPresented {
                     colorScheme == .dark ? Color.black.ignoresSafeArea().opacity(0.7) : Color.white.ignoresSafeArea().opacity(0.7)
                 }
-                    
+                
                 
                 alertTextField(title: "Type a name", isShown: $isPresented, text: $text, onDone: {
                     text in
@@ -121,19 +106,26 @@ struct LoanCalculator: View {
                         
                         print(LoanController.testData)
                     }
-                    
-                    
-                 }
-                
-                )
-                
+                })
             }
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        focusField = nil
+                    }
+                }
+                ToolbarItem {
+                    Button("Cancel") {
+                        presentation.wrappedValue.dismiss()
+                    }
+                }
+            }
+
+            .navigationTitle("Loan Calculator")
         }
-        
-        
-        }
-        
     }
+}
 
 
 struct ContentView_Previews: PreviewProvider {
