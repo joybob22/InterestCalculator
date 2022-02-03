@@ -177,7 +177,7 @@
 		0E287149E74C235521D84600D0C9B280 /* Platform+Gestures.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Platform+Gestures.swift"; path = "Source/Charts/Utils/Platform+Gestures.swift"; sourceTree = "<group>"; };
 		0F4DDEF4A7E1473A0A77044933BBC7EB /* XAxis.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XAxis.swift; path = Source/Charts/Components/XAxis.swift; sourceTree = "<group>"; };
 		1137A3154E31F919E544231EDBE4F4A4 /* XAxisRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XAxisRenderer.swift; path = Source/Charts/Renderers/XAxisRenderer.swift; sourceTree = "<group>"; };
-		12FB75D2A1815F872CF7AE59FA564A9F /* Pods-InterestCalculator */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-InterestCalculator"; path = Pods_InterestCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12FB75D2A1815F872CF7AE59FA564A9F /* Pods_InterestCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InterestCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18119E2E59FD581E3BE807720C0B6285 /* ViewPortHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewPortHandler.swift; path = Source/Charts/Utils/ViewPortHandler.swift; sourceTree = "<group>"; };
 		1A7B411ABEF18348A1C24049179B0396 /* ScatterChartData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScatterChartData.swift; path = Source/Charts/Data/Implementations/Standard/ScatterChartData.swift; sourceTree = "<group>"; };
 		1E783FA79E7C5FEE6D62879F518ABF0A /* CandleChartData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CandleChartData.swift; path = Source/Charts/Data/Implementations/Standard/CandleChartData.swift; sourceTree = "<group>"; };
@@ -575,7 +575,7 @@
 			isa = PBXGroup;
 			children = (
 				A1C1B977ED8804E8AEEC884E7359EE58 /* Charts.framework */,
-				12FB75D2A1815F872CF7AE59FA564A9F /* Pods-InterestCalculator */,
+				12FB75D2A1815F872CF7AE59FA564A9F /* Pods_InterestCalculator.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -626,7 +626,7 @@
 			);
 			name = "Pods-InterestCalculator";
 			productName = Pods_InterestCalculator;
-			productReference = 12FB75D2A1815F872CF7AE59FA564A9F /* Pods-InterestCalculator */;
+			productReference = 12FB75D2A1815F872CF7AE59FA564A9F /* Pods_InterestCalculator.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		BF03B0B2B8B052092CB5F90CC5FB3757 /* Charts */ = {

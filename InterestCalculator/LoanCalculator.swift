@@ -36,9 +36,9 @@ struct LoanCalculator: View {
                 Form {
 
                     Section {
-                        TextField("Amount", value: $amount, formatter: NumberFormatter()).keyboardType(.decimalPad).focused($focusField, equals: .amount)
-                        TextField("Interst Rate", value: $interestRate, formatter: NumberFormatter()).keyboardType(.decimalPad).focused($focusField, equals: .interestRate)
-                        TextField("Term", value: $term, formatter: NumberFormatter()).keyboardType(.decimalPad).focused($focusField, equals: .term)
+                        TextField("Amount - Ex. 2000 for $2,000", value: $amount, formatter: NumberFormatter()).keyboardType(.decimalPad).focused($focusField, equals: .amount)
+                        TextField("Interst Rate - Ex. 7 for 7%", value: $interestRate, formatter: NumberFormatter()).keyboardType(.decimalPad).focused($focusField, equals: .interestRate)
+                        TextField("Term - Ex. 12 for 12 months", value: $term, formatter: NumberFormatter()).keyboardType(.decimalPad).focused($focusField, equals: .term)
                         
                     }
                     Section {
@@ -96,6 +96,11 @@ struct LoanCalculator: View {
                         Spacer()
                         Button("Done") {
                             focusField = nil
+                        }
+                    }
+                    ToolbarItem {
+                        Button("Cancel") {
+                            presentation.wrappedValue.dismiss()
                         }
                     }
                 }
