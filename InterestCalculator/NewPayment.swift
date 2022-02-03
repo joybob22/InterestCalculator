@@ -45,7 +45,7 @@ struct NewPayment: View {
                     
                     Section {
                         
-                        TextField("New Payment:", value: $newPayment, formatter: NumberFormatter()).font(.title2).padding().background(Color(.systemBlue)).clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous)).shadow(radius: 10).keyboardType(.decimalPad)
+                        TextField("Extra monthly payment:", value: $newPayment, formatter: NumberFormatter())
                             .focused($focusField)
                     }
                     
