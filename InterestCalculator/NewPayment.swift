@@ -18,6 +18,7 @@ struct NewPayment: View {
     @State var newLoan: Loan
     @State var newInterestPayment: Double = 0
     @State var newTerm = 0
+    @State var showComparisonSection = false
     
     var oldInterestpayment: Double {
         var payments: Double = 0
@@ -50,12 +51,13 @@ struct NewPayment: View {
                     }
                     
                     NavigationLink("See amortiztion Table", destination: AmoritizationView(amoritization: newLoan.amoritization))
-                    
-                    Section {
-                        Text("New Interest payment: \(newInterestPayment)")
-                        Text("New Term: \(newTerm)")
-                        Text("Old Interst payment: \(oldInterestpayment)")
-                        Text("Old Term \(oldTerm)")
+                    if showComparisonSection {
+                        Section {
+                            Text("New Interest payment: \(newInterestPayment)")
+                            Text("New Term: \(newTerm)")
+                            Text("Old Interst payment: \(oldInterestpayment)")
+                            Text("Old Term \(oldTerm)")
+                        }
                     }
                     Section {
                         Button("Save New Payment") {
@@ -75,7 +77,9 @@ struct NewPayment: View {
                         Button("Done") {
                             focusField = false
                             if let newPayment = newPayment {
-
+                                withAnimation {
+                                    showComparisonSection = true
+                                }
                                 let newLoan1 = Loan(amount: loan.amount, interestRate: loan.interestRate, term: loan.term, name: loan.name, addedPayment: newPayment + loan.addedPayment)
 
                                 print(loan.amoritization)
