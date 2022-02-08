@@ -16,11 +16,7 @@ class LoanController: ObservableObject {
     
     static var shared = LoanController(loans: testData)
     
-    @Published var data: [Loan] {
-        didSet {
-            print(data.count)
-        }
-    }
+    @Published var data: [Loan]
     
     init(loans: [Loan]) {
         data = loans
@@ -38,6 +34,13 @@ class LoanController: ObservableObject {
     static func currencyFormatter(number: Double) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
+        return formatter.string(from: NSNumber(value: number))!
+    }
+    
+    static func round(number: Double, decimalPlaces: Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = decimalPlaces
         return formatter.string(from: NSNumber(value: number))!
     }
     

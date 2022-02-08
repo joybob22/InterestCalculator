@@ -39,8 +39,8 @@ struct NewPayment: View {
                     Section {
                         Text("Name: \(loan.name)")
                         Text("Term: \(newLoan.amoritization.count)")
-                        Text("Interst Rate: \(loan.interestRate)")
-                        Text("Payment: \(newLoan.payment + newLoan.addedPayment)")
+                        Text("Interst Rate: \(LoanController.round(number: loan.interestRate * 100, decimalPlaces: 0))%")
+                        Text("Payment: \(LoanController.currencyFormatter(number: newLoan.payment + newLoan.addedPayment))")
                         
                     }
                     
@@ -53,9 +53,9 @@ struct NewPayment: View {
                     NavigationLink("See amortiztion Table", destination: AmoritizationView(amoritization: newLoan.amoritization))
                     if showComparisonSection {
                         Section {
-                            Text("New Interest payment: \(newInterestPayment)")
+                            Text("New Interest payment: \(LoanController.currencyFormatter(number: newInterestPayment))")
                             Text("New Term: \(newTerm)")
-                            Text("Old Interst payment: \(oldInterestpayment)")
+                            Text("Old Interst payment: \(LoanController.currencyFormatter(number: oldInterestpayment))")
                             Text("Old Term \(oldTerm)")
                         }
                     }
