@@ -16,7 +16,11 @@ class LoanController: ObservableObject {
     
     static var shared = LoanController(loans: testData)
     
-    @Published var data: [Loan]
+    @Published var data: [Loan] {
+        didSet {
+            print(data.count)
+        }
+    }
     
     init(loans: [Loan]) {
         data = loans

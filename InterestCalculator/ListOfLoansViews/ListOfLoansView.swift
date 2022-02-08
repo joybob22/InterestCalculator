@@ -12,11 +12,12 @@ struct ListOfLoansView: View {
     @State var itemIndexSetToBeDeleted: IndexSet?
     @State var itemToBeDeleted: Loan?
     @State var showingLoanCalculator = false
+    @ObservedObject var shared = LoanController.shared
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(LoanController.shared.data) { loan in
+                ForEach(shared.data) { loan in
                     LoanRowView(loan: loan)
                 }
                 .onDelete(perform: deleteRow)
