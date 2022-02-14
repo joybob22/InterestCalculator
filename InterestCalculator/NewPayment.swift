@@ -48,6 +48,7 @@ struct NewPayment: View {
                         
                         TextField("Extra monthly payment:", value: $newPayment, formatter: NumberFormatter())
                             .focused($focusField)
+                            .keyboardType(.decimalPad)
                     }
                     
                     NavigationLink("See amortiztion Table", destination: AmoritizationView(amoritization: newLoan.amoritization))
@@ -60,14 +61,7 @@ struct NewPayment: View {
                         }
                     }
                     Section {
-                        Button("Save New Payment") {
-                            if  newLoan.addedPayment > 0 {
-                                print(loan.id)
-                                LoanController.shared.updatedLoan(loan: newLoan, id: loan.id)
-                                LoanController.shared.objectWillChange.send()
-                                presentationMode.wrappedValue.dismiss()
-                            }
-                        }
+                        
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                         .background(Color.blue).foregroundColor(.white).cornerRadius(20)
@@ -96,6 +90,19 @@ struct NewPayment: View {
                         }
                     }
                 }
+                //Hide the button when the keyboard is being shown.
+                //If we do not hide the button then it moves up with the keyboard...
+                if !focusField {
+                    Button("Save New Payment") {
+                        if  newLoan.addedPayment > 0 {
+                            print(loan.id)
+                            LoanController.shared.updatedLoan(loan: newLoan, id: loan.id)
+                            LoanController.shared.objectWillChange.send()
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    }
+                }
+                
             }
             .navigationTitle("New Payment")
     }
