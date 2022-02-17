@@ -30,9 +30,11 @@ struct LoanCalculator: View {
     
     @FocusState private var focusField: Field?
     
+    @ObservedObject private var chartDataContainer = ChartDataContainer(chartData: [])
+    
     var body: some View {
         NavigationView {
-            VStack {
+            ZStack {
                 Form {
 
                     Section {
@@ -43,12 +45,31 @@ struct LoanCalculator: View {
                     }
                     Section {
                         Button("Calculate") {
-                            print("Hello")
+                            
                             if let amount = amount, let interestRate = interestRate, let term = term {
                             loan = Loan(amount: amount, interestRate: interestRate / 100, term: term, name: "")
                                 //print(loan?.payment)
-                            }
                                 
+                                let principalAmount: CGFloat = CGFloat(amount)
+                                var interestAmount: CGFloat = 0 //total of interest payments
+                                if let loan = loan {
+                                    for term in loan.amoritization {
+                                        interestAmount += term.interestPayment
+                                    }
+                                }
+                               
+                                let wholeAmount: CGFloat = principalAmount + interestAmount
+
+                                chartDataContainer.chartData = [
+                                    ChartData(color: Color(#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)), percent : (principalAmount / wholeAmount) * 100, title: "Principal payment"),
+                                    ChartData(color: Color(#colorLiteral(red: 1, green: 0.1875322177, blue: 0.212697154, alpha: 1)), percent: (interestAmount / wholeAmount) * 100, title: "Interest Payment"),
+                                    //ChartData(color: Color(#colorLiteral(red: 0.4508578777, green: 0.9882974029, blue: 0.8376303315, alpha: 1)), percent: 40, value: 0),
+                                    //ChartData(color: Color(#colorLiteral(red: 0.476841867, green: 0.5048075914, blue: 1, alpha: 1)), percent: 35, value: 0)]
+                                    ]
+                                
+                                chartDataContainer.calc()
+                            }
+                            print("Hello")
                         }
                         
                     }
@@ -61,12 +82,14 @@ struct LoanCalculator: View {
                         VStack {
                             Text("Payments")
                             Divider()
-                            Image(systemName: "dollarsign.circle")
+                            
+                            PieChart(charDataObj: chartDataContainer)
+                            /*Image(systemName: "dollarsign.circle")
                                 .resizable()
                                 .background(Color.gray)
                                 .frame(width: 200, height: 200, alignment: .center)
                                 .padding()
-                            
+                            */
                             
                         }
                     }
@@ -132,7 +155,17 @@ struct LoanCalculator: View {
         
         
         }
+    func calc(chartDataInput: [ChartData]) -> [ChartData] {
+        var value : CGFloat = 0
+        var chartData = chartDataInput
         
+        for i in 0..<chartData.count {
+            value += chartData[i].percent
+            chartData[i].value = value
+            
+        }
+        return chartData
+    }
     }
 
 

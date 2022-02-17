@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		032C27A9278F42BD00EE3136 /* alertTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032C27A8278F42BD00EE3136 /* alertTextField.swift */; };
+		0348776E27AC35720054BD8E /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0348776D27AC35720054BD8E /* ChartData.swift */; };
 		03D85410279EF0D800D78268 /* NewPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D8540F279EF0D800D78268 /* NewPayment.swift */; };
 		A348C65F278F385C00DF9267 /* AmoritizationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A348C65E278F385C00DF9267 /* AmoritizationRowView.swift */; };
 		A348C661278F3AB700DF9267 /* AmoritizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A348C660278F3AB700DF9267 /* AmoritizationView.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		032C27A8278F42BD00EE3136 /* alertTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertTextField.swift; sourceTree = "<group>"; };
+		0348776D27AC35720054BD8E /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		03D8540F279EF0D800D78268 /* NewPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPayment.swift; sourceTree = "<group>"; };
 		0E231E5B422DAD152BA6100F /* Pods_InterestCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InterestCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		444271029D031ACCE9802C7E /* Pods-InterestCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InterestCalculator.release.xcconfig"; path = "Target Support Files/Pods-InterestCalculator/Pods-InterestCalculator.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				A3965C95278C89540034F518 /* Model */,
 				A3F4F725278743980010CE9F /* InterestCalculatorApp.swift */,
 				03D8540F279EF0D800D78268 /* NewPayment.swift */,
+				0348776D27AC35720054BD8E /* ChartData.swift */,
 				A3F4F727278743980010CE9F /* LoanCalculator.swift */,
 				032C27A8278F42BD00EE3136 /* alertTextField.swift */,
 				A3F4F729278743980010CE9F /* Assets.xcassets */,
@@ -274,6 +277,7 @@
 				A3965C97278C89890034F518 /* AmortizationRow.swift in Sources */,
 				A3965C99278C89970034F518 /* Loan.swift in Sources */,
 				A37FD5E9278DDBFE0035212C /* LoanRowView.swift in Sources */,
+				0348776E27AC35720054BD8E /* ChartData.swift in Sources */,
 				A37FD5EC278DE5F00035212C /* LoanController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
