@@ -7,20 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032C27A9278F42BD00EE3136 /* alertTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032C27A8278F42BD00EE3136 /* alertTextField.swift */; };
+		0348776E27AC35720054BD8E /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0348776D27AC35720054BD8E /* ChartData.swift */; };
+		03D85410279EF0D800D78268 /* NewPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D8540F279EF0D800D78268 /* NewPayment.swift */; };
+		A348C65F278F385C00DF9267 /* AmoritizationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A348C65E278F385C00DF9267 /* AmoritizationRowView.swift */; };
+		A348C661278F3AB700DF9267 /* AmoritizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A348C660278F3AB700DF9267 /* AmoritizationView.swift */; };
+		A37FD5E7278DDBEA0035212C /* ListOfLoansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37FD5E6278DDBEA0035212C /* ListOfLoansView.swift */; };
+		A37FD5E9278DDBFE0035212C /* LoanRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37FD5E8278DDBFE0035212C /* LoanRowView.swift */; };
+		A37FD5EC278DE5F00035212C /* LoanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37FD5EB278DE5F00035212C /* LoanController.swift */; };
 		A3965C97278C89890034F518 /* AmortizationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3965C96278C89890034F518 /* AmortizationRow.swift */; };
 		A3965C99278C89970034F518 /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3965C98278C89970034F518 /* Loan.swift */; };
 		A3F4F726278743980010CE9F /* InterestCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4F725278743980010CE9F /* InterestCalculatorApp.swift */; };
-		A3F4F728278743980010CE9F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4F727278743980010CE9F /* ContentView.swift */; };
+		A3F4F728278743980010CE9F /* LoanCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4F727278743980010CE9F /* LoanCalculator.swift */; };
 		A3F4F72A278743980010CE9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F4F729278743980010CE9F /* Assets.xcassets */; };
 		A3F4F72D278743980010CE9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F4F72C278743980010CE9F /* Preview Assets.xcassets */; };
+		E8C099AD8E188F8529E297D4 /* Pods_InterestCalculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E231E5B422DAD152BA6100F /* Pods_InterestCalculator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		032C27A8278F42BD00EE3136 /* alertTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertTextField.swift; sourceTree = "<group>"; };
+		0348776D27AC35720054BD8E /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+		03D8540F279EF0D800D78268 /* NewPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPayment.swift; sourceTree = "<group>"; };
+		0E231E5B422DAD152BA6100F /* Pods_InterestCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InterestCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		444271029D031ACCE9802C7E /* Pods-InterestCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InterestCalculator.release.xcconfig"; path = "Target Support Files/Pods-InterestCalculator/Pods-InterestCalculator.release.xcconfig"; sourceTree = "<group>"; };
+		8BE78F7F92F3CAE7BC270CB2 /* Pods-InterestCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InterestCalculator.debug.xcconfig"; path = "Target Support Files/Pods-InterestCalculator/Pods-InterestCalculator.debug.xcconfig"; sourceTree = "<group>"; };
+		A348C65E278F385C00DF9267 /* AmoritizationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmoritizationRowView.swift; sourceTree = "<group>"; };
+		A348C660278F3AB700DF9267 /* AmoritizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmoritizationView.swift; sourceTree = "<group>"; };
+		A37FD5E6278DDBEA0035212C /* ListOfLoansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfLoansView.swift; sourceTree = "<group>"; };
+		A37FD5E8278DDBFE0035212C /* LoanRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanRowView.swift; sourceTree = "<group>"; };
+		A37FD5EB278DE5F00035212C /* LoanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanController.swift; sourceTree = "<group>"; };
 		A3965C96278C89890034F518 /* AmortizationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmortizationRow.swift; sourceTree = "<group>"; };
 		A3965C98278C89970034F518 /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		A3F4F722278743980010CE9F /* InterestCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterestCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F4F725278743980010CE9F /* InterestCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestCalculatorApp.swift; sourceTree = "<group>"; };
-		A3F4F727278743980010CE9F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A3F4F727278743980010CE9F /* LoanCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCalculator.swift; sourceTree = "<group>"; };
 		A3F4F729278743980010CE9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3F4F72C278743980010CE9F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -30,12 +50,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8C099AD8E188F8529E297D4 /* Pods_InterestCalculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F629A5742E1D3A53A042A55 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8BE78F7F92F3CAE7BC270CB2 /* Pods-InterestCalculator.debug.xcconfig */,
+				444271029D031ACCE9802C7E /* Pods-InterestCalculator.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		52B1B6243F477BACC2095AF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E231E5B422DAD152BA6100F /* Pods_InterestCalculator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A348C65D278F381A00DF9267 /* AmortizationViews */ = {
+			isa = PBXGroup;
+			children = (
+				A348C65E278F385C00DF9267 /* AmoritizationRowView.swift */,
+				A348C660278F3AB700DF9267 /* AmoritizationView.swift */,
+			);
+			path = AmortizationViews;
+			sourceTree = "<group>";
+		};
+		A37FD5E5278DDB9D0035212C /* ListOfLoansViews */ = {
+			isa = PBXGroup;
+			children = (
+				A37FD5E6278DDBEA0035212C /* ListOfLoansView.swift */,
+				A37FD5E8278DDBFE0035212C /* LoanRowView.swift */,
+			);
+			path = ListOfLoansViews;
+			sourceTree = "<group>";
+		};
+		A37FD5EA278DE5DB0035212C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A37FD5EB278DE5F00035212C /* LoanController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		A3965C95278C89540034F518 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -50,6 +114,8 @@
 			children = (
 				A3F4F724278743980010CE9F /* InterestCalculator */,
 				A3F4F723278743980010CE9F /* Products */,
+				4F629A5742E1D3A53A042A55 /* Pods */,
+				52B1B6243F477BACC2095AF1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,9 +130,15 @@
 		A3F4F724278743980010CE9F /* InterestCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				A348C65D278F381A00DF9267 /* AmortizationViews */,
+				A37FD5EA278DE5DB0035212C /* Controllers */,
+				A37FD5E5278DDB9D0035212C /* ListOfLoansViews */,
 				A3965C95278C89540034F518 /* Model */,
 				A3F4F725278743980010CE9F /* InterestCalculatorApp.swift */,
-				A3F4F727278743980010CE9F /* ContentView.swift */,
+				03D8540F279EF0D800D78268 /* NewPayment.swift */,
+				0348776D27AC35720054BD8E /* ChartData.swift */,
+				A3F4F727278743980010CE9F /* LoanCalculator.swift */,
+				032C27A8278F42BD00EE3136 /* alertTextField.swift */,
 				A3F4F729278743980010CE9F /* Assets.xcassets */,
 				A3F4F72B278743980010CE9F /* Preview Content */,
 			);
@@ -88,9 +160,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3F4F730278743980010CE9F /* Build configuration list for PBXNativeTarget "InterestCalculator" */;
 			buildPhases = (
+				26DFE1B3D68B58A0AE065FC2 /* [CP] Check Pods Manifest.lock */,
 				A3F4F71E278743980010CE9F /* Sources */,
 				A3F4F71F278743980010CE9F /* Frameworks */,
 				A3F4F720278743980010CE9F /* Resources */,
+				49371B9156AC1872FEA61C55 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -146,15 +220,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		26DFE1B3D68B58A0AE065FC2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InterestCalculator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49371B9156AC1872FEA61C55 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InterestCalculator/Pods-InterestCalculator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InterestCalculator/Pods-InterestCalculator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InterestCalculator/Pods-InterestCalculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A3F4F71E278743980010CE9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3F4F728278743980010CE9F /* ContentView.swift in Sources */,
+				A3F4F728278743980010CE9F /* LoanCalculator.swift in Sources */,
+				032C27A9278F42BD00EE3136 /* alertTextField.swift in Sources */,
+				A37FD5E7278DDBEA0035212C /* ListOfLoansView.swift in Sources */,
+				03D85410279EF0D800D78268 /* NewPayment.swift in Sources */,
+				A348C661278F3AB700DF9267 /* AmoritizationView.swift in Sources */,
+				A348C65F278F385C00DF9267 /* AmoritizationRowView.swift in Sources */,
 				A3F4F726278743980010CE9F /* InterestCalculatorApp.swift in Sources */,
 				A3965C97278C89890034F518 /* AmortizationRow.swift in Sources */,
 				A3965C99278C89970034F518 /* Loan.swift in Sources */,
+				A37FD5E9278DDBFE0035212C /* LoanRowView.swift in Sources */,
+				0348776E27AC35720054BD8E /* ChartData.swift in Sources */,
+				A37FD5EC278DE5F00035212C /* LoanController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +403,7 @@
 		};
 		A3F4F731278743980010CE9F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BE78F7F92F3CAE7BC270CB2 /* Pods-InterestCalculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -308,6 +433,7 @@
 		};
 		A3F4F732278743980010CE9F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 444271029D031ACCE9802C7E /* Pods-InterestCalculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
