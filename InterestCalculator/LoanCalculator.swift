@@ -122,7 +122,7 @@ struct LoanCalculator: View {
                     text in
                     
                     if let amount = amount, let interestRate = interestRate, let term = term {
-                        LoanController.shared.data.append(Loan(amount: amount, interestRate: interestRate, term: term, name: text))
+                        LoanController.shared.data.append(Loan(amount: amount, interestRate: interestRate / 100, term: term, name: text))
                         LoanController.shared.objectWillChange.send()
                         presentation.wrappedValue.dismiss()
                         
